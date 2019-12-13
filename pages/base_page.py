@@ -7,10 +7,11 @@ class BasePage():
         self.url = url
         #cause https://bugs.launchpad.net/ubuntu/+source/python-selenium/+bug/1833448
         #self.browser.implicitly_wait(timeout)
-        time.sleep(10)
+
 
     def open(self):
         self.browser.get(self.url)
+        time.sleep(10)
 
     def is_element_present(self, how, what):
         try:

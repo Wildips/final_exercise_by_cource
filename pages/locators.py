@@ -9,5 +9,5 @@ class MainPageLocators():
 class LoginPageLocators():
     LOGIN_FORM = (By.CLASS_NAME, ".login_form")
     REGISTER_FORM = (By.CLASS_NAME, ".register_form")
-#    LOGIN_URL = (By.ID, "#login_link")
+    LOGIN_URL = (By.PARTIAL_LINK_TEXT, "/login/")
 
