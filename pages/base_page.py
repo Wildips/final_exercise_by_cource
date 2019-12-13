@@ -1,11 +1,13 @@
 from selenium.common.exceptions import NoSuchElementException
-
+import time
 
 class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
-        #self.browser.implicitly_wait(timeout)
         self.url = url
+        #cause https://bugs.launchpad.net/ubuntu/+source/python-selenium/+bug/1833448
+        #self.browser.implicitly_wait(timeout)
+        time.sleep(10)
 
     def open(self):
         self.browser.get(self.url)
