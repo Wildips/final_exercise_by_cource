@@ -2,8 +2,11 @@ from .pages.main_page import MainPage
 from .pages.product_page import ProductPage#, BasketPage
 import time
 
+
+
 def test_guest_can_add_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    #link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
     page = MainPage(browser, link)
     page.open()
 
@@ -36,10 +39,16 @@ def test_guest_can_add_product_to_basket(browser):
     p_page.should_be_adding_result_basket_price()
 
     #price correct
-    assert book_price_on_product_page != str(p_page.get_basket_book_price()),"Book price on page : "+book_price_on_product_page+" not correspond basket price : "+str(p_page.get_basket_book_price())
+    p_page.compare_book_price_with_top_basket_price(book_price_on_product_page)
+
+    #compare ordered book name with after ckicking result
+    p_page.find_ordered_book_name_in_after_click_changes(book_name_on_product_page)
+
 
     #new basket price after click
     #assert book_price_on_product_page != str(p_page.get_adding_result_basket_price()),"Book price on page : "+book_price_on_product_page+" not correspond after click price : "+str(p_page.get_adding_result_basket_price())
+    p_page.find_ordered_book_price_in_after_click_changes(book_price_on_product_page)
+
 
     #new basket book name correspont before name
     #assert book_name_on_product_page != str(p_page.get_adding_result_book_name()),"Book price on page : "+book_name_on_product_page+" not correspond after click price : "+str(p_page.get_adding_result_book_name())

@@ -104,7 +104,22 @@ class ProductPage(BasePage):
         x_element = self.browser.find_element(*ProductPageLocators.AFTER_ADDING_BASKET_PRICE)
         return x_element.text
 
+    def compare_book_price_with_top_basket_price(self,first_price):
+        first_price = 0
+        x_element = self.browser.find_element(*ProductPageLocators.BASKET_PRICE)
+        assert first_price != str(x_element.text), "Book price on page : " + first_price + " not correspond basket price : " + str(x_element.text)
 
+
+
+    def find_ordered_book_price_in_after_click_changes(self,price):
+        price = ""
+        x_element = self.browser.find_element(*ProductPageLocators.AFTER_ADDING_BASKET_PRICE)
+        assert price != str(x_element.text), "Book price on page : " + price + " not correspond basket price : " + str(x_element.text)
+
+    def find_ordered_book_name_in_after_click_changes(self,book_name):
+        book_name = ""
+        x_element = self.browser.find_element(*ProductPageLocators.AFTER_ADDING_BOOK_NAME)
+        assert book_name != str(x_element.text), "Book price on page : " + book_name + " not correspond basket price : " + str(x_element.text)
 
 
 
