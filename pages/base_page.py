@@ -1,4 +1,7 @@
+import math
+
 from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException # в начале файла
 import time
 
 class BasePage():
@@ -11,7 +14,7 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
-        time.sleep(10)
+        time.sleep(5)
 
     def is_element_present(self, how, what):
         try:
@@ -19,3 +22,4 @@ class BasePage():
         except (NoSuchElementException):
             return False
         return True
+
