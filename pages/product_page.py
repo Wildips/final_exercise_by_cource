@@ -8,27 +8,22 @@ from .locators import ProductPageLocators#, ProductBasketIn
 
 
 class ProductPage(BasePage):
-    def should_be_product_page(self):
-        self.should_be_button_add_to_basket()
-        self.should_be_product_link_xmass()
-        self.should_be_book_name()
-        self.should_be_book_price()
-        self.should_be_basket_price()
-        self.should_be_to_basket_link()
-        self.click_on_add_to_basket_btn()
-        self.click_on_link_to_basket()
-        self.accept_promt_window_after_book_was_added()
-        self.get_book_name()
-        self.get_basket_book_price()
-        self.get_book_price()
+#    def should_be_product_page(self):
+#        self.should_be_button_add_to_basket()
+#        self.should_be_product_link_xmass(link_postfix)
+#        self.should_be_book_name()
+#        self.should_be_book_price()
+#        self.should_be_basket_price()
+#        self.should_be_to_basket_link()
+#        self.should_be_present_search_button()
 
     def should_be_button_add_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.TO_BASKET_BTN), "To basket button is absent."
 
-    def should_be_product_link_xmass(self):
+    def should_be_product_link_xmass(self,link_postfix):
         #assert self.is_element_present(*ProductPageLocators.MARY_LINK), "Wrong url - wrong page."
         #"+(str(self.browser.current_url.find(u"promo=newYear")))+"
-        assert u"promo=newYear" in str(self.browser.current_url), "Login link is not found 'login' : "+str(self.browser.current_url)
+        assert link_postfix in str(self.browser.current_url), "Login link is not found 'login' : "+str(self.browser.current_url)
         #assert self.is_element_present(*ProductPageLocators.MARY_LINK), "Wrong url - wrong page : "+self.is_element_present(*ProductPageLocators.MARY_LINK)
 
     def should_be_book_name(self):
@@ -42,6 +37,9 @@ class ProductPage(BasePage):
 
     def should_be_to_basket_link(self):
         assert self.is_element_present(*ProductPageLocators.GO_TO_BASKET), "Link into basket is absent."
+
+    def should_be_language_preseted(self):
+        assert self.is_element_present(*ProductPageLocators.PRESETED_LANG), "Preseted lang not ru."
 
     def click_on_add_to_basket_btn(self):
         button = self.browser.find_element(*ProductPageLocators.TO_BASKET_BTN)
@@ -88,13 +86,6 @@ class ProductPage(BasePage):
             print("No second alert presented")
 
 
-
-    def should_be_adding_result_book_name(self):
-        assert self.is_element_present(*ProductPageLocators.AFTER_ADDING_BOOK_NAME), "new book name is absent."
-
-    def should_be_adding_result_basket_price(self):
-        assert self.is_element_present(*ProductPageLocators.AFTER_ADDING_BASKET_PRICE), "nwe book price is absent."
-
     def get_adding_result_book_name(self):
         x_element = self.browser.find_element(*ProductPageLocators.AFTER_ADDING_BOOK_NAME)
         return x_element.text
@@ -105,38 +96,26 @@ class ProductPage(BasePage):
         return x_element.text
 
     def compare_book_price_with_top_basket_price(self,first_price):
-        first_price = 0
+        #first_price = 0
         x_element = self.browser.find_element(*ProductPageLocators.BASKET_PRICE)
         assert first_price != str(x_element.text), "Book price on page : " + first_price + " not correspond basket price : " + str(x_element.text)
 
 
 
     def find_ordered_book_price_in_after_click_changes(self,price):
-        price = ""
+        #price = ""
         x_element = self.browser.find_element(*ProductPageLocators.AFTER_ADDING_BASKET_PRICE)
-        assert price != str(x_element.text), "Book price on page : " + price + " not correspond basket price : " + str(x_element.text)
+        assert price == str(x_element.text), "Book price on page : " + price + " not correspond basket price : " + str(x_element.text)
 
     def find_ordered_book_name_in_after_click_changes(self,book_name):
-        book_name = ""
+        #book_name = ""
         x_element = self.browser.find_element(*ProductPageLocators.AFTER_ADDING_BOOK_NAME)
-        assert book_name != str(x_element.text), "Book price on page : " + book_name + " not correspond basket price : " + str(x_element.text)
+        assert book_name == str(x_element.text), "Book name on page : " + book_name + " not correspond basket name : " + str(x_element.text)
+
+    def should_be_present_search_button(self):
+        assert self.is_element_present(*ProductPageLocators.SEARCH_BUTTON), "search button is absent."
 
 
-
-#class BasketPage(BasePage):
-#    def should_be_basket_page(self):
-#        self.should_be_in_basket_link()
-#        self.shold_be_basket_book_name()
-#        self.get_in_basket_book_name()
-
-#    def should_be_in_basket_link(self):
-#        assert self.is_element_present(*ProductBasketIn.BASKET_URL), "Wrong url - wrong page."
-
-#    def shold_be_basket_book_name(self):
-#        assert self.is_element_present(*ProductBasketIn.BASKET_BOOK_NAME), "Book name is absent."
-
-#    def get_in_basket_book_name(self):
-#        x_element = self.browser.find_element(*ProductBasketIn.BASKET_BOOK_NAME)
-#        return x_element.text
-
+    def should_be_lang_select_button(self):
+       assert self.is_element_present(*ProductPageLocators.SEARCH_BUTTON), "search button is absent."
 
