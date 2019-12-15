@@ -1,7 +1,7 @@
 import pytest
 
 from .pages.main_page import MainPage
-from .pages.product_page import ProductPage#, BasketPage
+from .pages.product_page import ProductPage
 import time
 
 #after buged link was found and msrked list
@@ -20,9 +20,9 @@ import time
 #product_base_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
 #urls = [f"{product_base_link}/?promo=offer{no}" for no in range(10)]
 #@pytest.mark.parametrize('link', urls)
-
-
 def test_guest_can_add_product_to_basket(browser, link):
+
+#def test_guest_can_add_product_to_basket(browser):
     page = MainPage(browser, link)
     page.open()
 
@@ -49,7 +49,7 @@ def test_guest_can_add_product_to_basket(browser, link):
     #promt window
     p_page.solve_quiz_and_get_code()
 
-    time.sleep(3)
+    #time.sleep(3)
 
     #price correct
     p_page.compare_book_price_with_top_basket_price(book_price_on_product_page)
@@ -59,4 +59,5 @@ def test_guest_can_add_product_to_basket(browser, link):
 
     #new basket price after click
     p_page.find_ordered_book_price_in_after_click_changes(book_price_on_product_page)
+
 

@@ -119,3 +119,15 @@ class ProductPage(BasePage):
     def should_be_lang_select_button(self):
        assert self.is_element_present(*ProductPageLocators.SEARCH_BUTTON), "search button is absent."
 
+
+    #example should_not_be
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
+
+
+    #example should_not_be after several seconds
+    def should_not_be_after_waited_time_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
+

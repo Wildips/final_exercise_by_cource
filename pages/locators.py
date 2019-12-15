@@ -26,3 +26,8 @@ class ProductPageLocators():
     SEARCH_BUTTON = (By.CSS_SELECTOR,'[value = "Найти"]')
     PRESETED_LANG = (By.CSS_SELECTOR, '.form-group .form-control [value="ru"][selected="selected"]')
 
+
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR,'#messages .alert-info')
+
+
+
