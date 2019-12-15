@@ -3,7 +3,7 @@ import math
 from selenium.common.exceptions import NoAlertPresentException
 
 from .base_page import BasePage#, solve_quiz_and_get_code
-from .locators import ProductPageLocators#, ProductBasketIn
+from .locators import ProductPageLocators, BasePageLocators
 
 
 
@@ -131,3 +131,7 @@ class ProductPage(BasePage):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
         "Success message is presented, but should not be"
 
+
+#    def click_by_login_button(self):
+#        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+#        link.click()

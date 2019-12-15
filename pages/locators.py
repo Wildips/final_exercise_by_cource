@@ -2,14 +2,14 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-class MainPageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+#class MainPageLocators():
+#    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
 
 class LoginPageLocators():
     LOGIN_FORM = (By.CLASS_NAME, ".login_form")
     REGISTER_FORM = (By.CLASS_NAME, ".register_form")
-    LOGIN_URL = (By.PARTIAL_LINK_TEXT, "/login/")
+#    LOGIN_URL = (By.PARTIAL_LINK_TEXT, "/login/")
 
 
 class ProductPageLocators():
@@ -28,6 +28,14 @@ class ProductPageLocators():
 
 
     SUCCESS_MESSAGE = (By.CSS_SELECTOR,'#messages .alert-info')
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
+
+
+
 
 
 
