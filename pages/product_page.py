@@ -8,22 +8,24 @@ from .locators import ProductPageLocators, BasePageLocators
 
 
 class ProductPage(BasePage):
-#    def should_be_product_page(self):
-#        self.should_be_button_add_to_basket()
-#        self.should_be_product_link_xmass(link_postfix)
-#        self.should_be_book_name()
-#        self.should_be_book_price()
-#        self.should_be_basket_price()
-#        self.should_be_to_basket_link()
-#        self.should_be_present_search_button()
+    def should_be_product_page(self):
+        self.should_be_button_add_to_basket()
+        self.should_be_book_name()
+        self.should_be_book_price()
+        self.should_be_basket_price()
+        self.should_be_to_basket_link()
+        self.should_be_present_search_button()
+        self.should_be_lang_select_button()
+        self.should_be_lang_select_button()
+
 
     def should_be_button_add_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.TO_BASKET_BTN), "To basket button is absent."
 
-    def should_be_product_link_xmass(self,link_postfix):
+#    def should_be_product_link_xmass(self,link_postfix):
         #assert self.is_element_present(*ProductPageLocators.MARY_LINK), "Wrong url - wrong page."
         #"+(str(self.browser.current_url.find(u"promo=newYear")))+"
-        assert link_postfix in str(self.browser.current_url), "Login link is not found 'login' : "+str(self.browser.current_url)
+#        assert link_postfix in str(self.browser.current_url), "Login link is not found 'login' : "+str(self.browser.current_url)
         #assert self.is_element_present(*ProductPageLocators.MARY_LINK), "Wrong url - wrong page : "+self.is_element_present(*ProductPageLocators.MARY_LINK)
 
     def should_be_book_name(self):

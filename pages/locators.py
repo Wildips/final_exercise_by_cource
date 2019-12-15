@@ -7,8 +7,8 @@ from selenium.webdriver.common.by import By
 
 
 class LoginPageLocators():
-    LOGIN_FORM = (By.CLASS_NAME, ".login_form")
-    REGISTER_FORM = (By.CLASS_NAME, ".register_form")
+    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
 #    LOGIN_URL = (By.PARTIAL_LINK_TEXT, "/login/")
 
 
@@ -32,7 +32,13 @@ class ProductPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.PARTIAL_LINK_TEXT, "/basket/")
 
+class BasketPageLocators():
+    #BASKET_LINK =
+    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+    pass
 
 
 
